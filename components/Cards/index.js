@@ -21,9 +21,9 @@ const parent = document.querySelector('.cards-container');
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
     .then(res => {
-        console.log(res.data);
+        console.log(res.data.articles);
         Object.values(res.data.articles).forEach(item => {
-            item.forEach(item => parent.append(articleMaker(item)))
+            item.forEach(item => parent.append(articleMaker(item)));
         })
     })
     .catch(err => {
